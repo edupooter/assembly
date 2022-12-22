@@ -2,7 +2,7 @@
 
 This example uses a IF to compare a string "Hello World". If true, 👩, else "FALSO!".
 
-To compile it in Windows SO:
+To compile it:
 
 ```
 $ nasm -f elf hello.asm

@@ -11,6 +11,10 @@ false_len equ $-false_msg
 
 section .text
 
+global main
+
+main:
+
 mov eax, 4
 mov ebx, 1
 mov ecx, msg
