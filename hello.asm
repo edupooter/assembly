@@ -11,33 +11,30 @@ false_len equ $-false_msg
 
 section .text
 
-global _start
+mov eax, 4
+mov ebx, 1
+mov ecx, msg
+mov edx, len
+int 0x80
 
-_start:
-    mov eax, 4
-    mov ebx, 1
-    mov ecx, msg
-    mov edx, len
-    int 0x80
-
-    mov eax, 4
-    mov ebx, 1
-    mov ecx, true_msg
-    mov edx, true_len
-    cmp ecx, msg
-    jz true
-    jmp false
+mov eax, 4
+mov ebx, 1
+mov ecx, true_msg
+mov edx, true_len
+cmp ecx, msg
+jz true
+jmp false
 
 true:
-    int 0x80
-    jmp end
+  int 0x80
+  jmp end
 
 false:
-    mov ecx, false_msg
-    mov edx, false_len
-    int 0x80
+  mov ecx, false_msg
+  mov edx, false_len
+  int 0x80
 
 end:
-    mov eax, 1
-    xor ebx, ebx
-    int 0x80
+  mov eax, 1
+  xor ebx, ebx
+  int 0x80
